@@ -2,7 +2,7 @@
 
 arXiv: https://arxiv.org/abs/2511.19426
 
-## TODO
+## TODO List
 
 - [ ] Release SAM3Agent + SAM3D code  
 - [ ] Release quantitative evaluation code and results for Ref-SAM3D  
