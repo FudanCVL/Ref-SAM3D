@@ -5,3 +5,5 @@ output
 checkpoints
 tmp
 .gradio
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
