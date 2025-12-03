@@ -47,7 +47,7 @@ hf download \
   --local-dir checkpoints/${TAG}-download \
   --max-workers 1 \
   facebook/sam-3d-objects
-mv checkpoints/${TAG}-download/checkpoints checkpoints/${TAG}
+mv checkpoints/TAG−download/checkpointscheckpoints/{TAG}-download/checkpoints checkpoints/{TAG}
 rm -rf checkpoints/${TAG}-download
 ```
 ### 3.Installing SAM 3
@@ -100,4 +100,16 @@ output/
 To visualize the results, run the following command. This will launch a local Gradio interface where you can view the 3D model:
 ```bash     
 python vis.py --ply_path <path_to_ply_file>
+```
+
+
+# Citation
+If you find this work useful, we would greatly appreciate your citation:
+```
+@article{zhou2025ref,
+  title={Ref-SAM3D: Bridging SAM3D with Text for Reference 3D Reconstruction},
+  author={Zhou, Yun and Wang, Yaoting and Jie, Guangquan and Liu, Jinyu and Ding, Henghui},
+  journal={arXiv preprint arXiv:2511.19426},
+  year={2025}
+}
 ```
