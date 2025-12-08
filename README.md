@@ -77,6 +77,7 @@ pip install vllm --extra-index-url https://download.pytorch.org/whl/cu128
 ```
 * Start vLLM server on the same machine
 ```bash
+conda activate vllm # activate vllm conda env in another terminal
 vllm serve Qwen/Qwen3-VL-4B-Instruct-FP8 --tensor-parallel-size 1 --allowed-local-media-path / --max-model-len 65536 --enforce-eager --port 8001 --gpu-memory-utilization 0.4
 ```
 You can control vLLM's GPU memory usage via the max-model-len and gpu-memory-utilization parameters.
