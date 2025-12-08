@@ -47,7 +47,7 @@ hf download \
   --local-dir checkpoints/${TAG}-download \
   --max-workers 1 \
   facebook/sam-3d-objects
-mv checkpoints/TAG−download/checkpointscheckpoints/{TAG}-download/checkpoints checkpoints/{TAG}
+mv checkpoints/${TAG}-download/checkpoints checkpoints/${TAG}
 rm -rf checkpoints/${TAG}-download
 ```
 ### 3.Installing SAM 3
@@ -77,12 +77,14 @@ pip install vllm --extra-index-url https://download.pytorch.org/whl/cu128
 ```
 * Start vLLM server on the same machine
 ```bash
-vllm serve Qwen/Qwen3-VL-4B-Instruct-FP8 --tensor-parallel-size 2 --allowed-local-media-path / --enforce-eager --port 8001
+vllm serve Qwen/Qwen3-VL-4B-Instruct-FP8 --tensor-parallel-size 1 --allowed-local-media-path / --max-model-len 65536 --enforce-eager --port 8001 --gpu-memory-utilization 0.4
 ```
+You can control vLLM's GPU memory usage via the max-model-len and gpu-memory-utilization parameters.
+
 
 ### Run inference code
 ```bash
-python inference_pipeline.py --image_path <path_to_image_file> --prompt "<your_text_prompt>" --model <llm_model_name> --vllm_port <vllm_server_port>
+python inference_pipeline.py --image_path <path_to_image_file> --prompt "<your_text_prompt>" --model <llm_model_name> --llm_server_url <llm_server_url>
 ```
 The model's predictions and 3D reconstruction results will be saved in the output/ directory with the following structure:
 ```bash
